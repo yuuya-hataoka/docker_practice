@@ -1,0 +1,24 @@
+version: "3.5"
+services:
+  review-php-apache:
+    build:
+      context: ./php-apache
+      dockerfile: Dockerfile
+    ports:
+      - [ 1 ]:[ 2 ]
+    volumes:
+      - type: bind
+        source: [ 3 ]
+        target: "/etc/apache2/sites-enabled/000-default.conf"
+      - type: bind
+        source: "./php-apache/app"
+        target: [ 4 ]
+    depends_on:
+      - review-mysql
+
+  review-mysql:
+    image: [ 5 ]
+    environment:
+      - MYSQL_ROOT_PASSWORD=e2QNqCUd
+      - MYSQL_DATABASE=docker_review
+
