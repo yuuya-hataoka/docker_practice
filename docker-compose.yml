@@ -21,4 +21,5 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=e2QNqCUd
       - MYSQL_DATABASE=docker_review
+    # platform: linux/amd64  M1チップのmacを使用している場合はこちらをコメントインしてください
 
